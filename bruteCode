@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length()!=t.length()){
+            return false;
+        }
+        char []c=s.toCharArray();
+        char []d=t.toCharArray();
+        Arrays.sort(c);
+        Arrays.sort(d);
+        int i=0;
+        int j=0;
+        while(i<c.length){
+            if(c[i]!=d[j]){
+                return false;
+            }else{
+                i++;
+                j++;
+            }
+        }return true;
+    }
+}  //time:O(nlogn) space:o(n)
