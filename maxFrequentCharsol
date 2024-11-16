@@ -1,0 +1,22 @@
+class Solution
+{
+    //Function to find the maximum occurring character in a string.
+    public static char getMaxOccuringChar(String line)
+    {
+        Map<Character,Integer> map=new HashMap<>();
+        for(int i=0;i<line.length();i++){
+            map.put(line.charAt(i),map.getOrDefault(line.charAt(i),0)+1);
+        }
+        char ans='\0';
+        int max=0;
+        char c[]=line.toCharArray();
+        Arrays.sort(c);
+        for(int i=0;i<c.length;i++){
+            if(map.get(c[i]) > max){
+                max=map.get(c[i]);
+                ans=c[i];
+            }
+        }return ans;
+    }
+    
+}
