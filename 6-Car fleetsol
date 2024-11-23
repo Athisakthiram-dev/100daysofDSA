@@ -1,0 +1,20 @@
+class Solution {
+    public int carFleet(int target, int[] position, int[] speed) {
+        TreeMap<Integer,Integer> map=new TreeMap<>();
+        int count=0;
+        for(int i=0;i<position.length;i++){
+            map.put(target-position[i],speed[i]);
+        } 
+        double slowSpeed= -1.0;
+        for(Map.Entry<Integer,Integer> e:map.entrySet()){
+            int distance=e.getKey();
+            int speedCar=e.getValue();
+            double fastSpeed=1.0*distance/speedCar;
+           
+            if(fastSpeed>slowSpeed){
+              ++count;
+              slowSpeed=fastSpeed;
+            }
+        }return count;
+    }
+}
